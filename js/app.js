@@ -44,7 +44,8 @@ medida_ini = medida_ini.toLowerCase()
 medida_fin = medida_fin.toLowerCase()
 
 //me gustaria hacer esto:
-console.log(litros.convertir_a(tazas,valor))
+console.log(litros.convertir_a(tazas,8))
+console.log(valor +" litros equivale a "+ litros.convertir_a(tazas, valor))
 
 ///)
 console.log ("esta salida solo estara 'correcta' si se quiere transformar de litros a tazas (no al reves, ni otras medidas:\n" + valor + " " + medida_ini + " equivalen a " + litros.convertir_a(tazas, valor) + " " + medida_fin)
