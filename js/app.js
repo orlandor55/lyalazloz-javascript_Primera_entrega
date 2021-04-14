@@ -1,4 +1,5 @@
 import { Medidor_de_Volumen } from "./Medidores.js";
+import * as Funciones from "./Funciones.js"
 
 const mililitros = new Medidor_de_Volumen("mililitros", 1);
 const litros = new Medidor_de_Volumen("litros", 1000,);
@@ -12,19 +13,7 @@ unidades_de_volumen.push(mililitros, litros, tazas, cucharadas);
 
 //Ordenar arrays con criterio de ordenamiento dado por parámetro:
 
-function comparar_base(a, b) {
-    return a.medida_base - b.medida_base;
-}
 
-function comparar_uni_medida(a, b) {
-    if (a.unidad_medida > b.unidad_medida) {
-        return 1;
-    }
-    if (a.unidad_medida < b.unidad_medida) {
-        return -1;
-    }
-    return 0;
-}
 
 // Array ordenado por el valor 
 let u_VolumenOrdenado2 = unidades_de_volumen.sort(comparar_base);
@@ -33,7 +22,7 @@ console.log(u_VolumenOrdenado2);
 // Aplico del método convertirBase a cada elemento del array
 
 let convertirBase = unidades_de_volumen.map(function(unidad_de_volumen){
-    console.log("1 "+ unidad_de_volumen.obtener_unidad_medida + " equivale a "+ (unidad_de_volumen.convertirBase()) + " " + unidad_de_volumen.obtener_unidad_medida_base);
+    console.log("1 "+ unidad_de_volumen.obtener_nombre_medida + " equivale a "+ (unidad_de_volumen.convertirBase()) + " " + unidad_de_volumen.obtener_nombre_valor_base);
 })
 
 let medida_ini =prompt("¿que desea transformar? (medida actual) \nLitros        Mililitros \nTazas         Cucharadas")
@@ -52,45 +41,45 @@ console.log ("esta salida solo estara 'correcta' si se quiere transformar de lit
 ///pero en estas partes medida_ini y litros.convertir_a(tazas,) la variable medida_ini llamara al objeto1 con su mismo nombre y en litros.convertir la parte de litros fuera llamado un objeto2 con el mismo nombre y no ingresarlo manualmente... como no logre hacerlo entrego esto que funciona, pero no creo que sea la mejor manera de hacerlo (mas abajo te dejo comentado algunas cosas que intente para mejorarlo)
 
 
-if(medida_ini == litros.obtener_unidad_medida && medida_fin == tazas.obtener_unidad_medida){
-    alert(valor + ' litro(s) equivale a ' + valor * 1000 / unidades_de_volumen[2].medida_base + ' tazas')
-}else if(medida_ini == litros.obtener_unidad_medida && medida_fin == cucharadas.obtener_unidad_medida){
-    alert(valor + ' litro(s) equivale a ' + valor * 1000 / unidades_de_volumen[1].medida_base + ' cucharadas')
-}else if(medida_ini == litros.obtener_unidad_medida && medida_fin == mililitros.obtener_unidad_medida){
-    alert(valor + ' litro(s) equivale a ' + valor * 1000 / unidades_de_volumen[0].medida_base + ' mililitros')
-}else if(medida_ini == litros.obtener_unidad_medida && medida_fin == litros.obtener_unidad_medida){
+if(medida_ini == litros.obtener_nombre_medida && medida_fin == tazas.obtener_nombre_medida){
+    alert(valor + ' litro(s) equivale a ' + valor * 1000 / unidades_de_volumen[2].valor_base + ' tazas')
+}else if(medida_ini == litros.obtener_nombre_medida && medida_fin == cucharadas.obtener_nombre_medida){
+    alert(valor + ' litro(s) equivale a ' + valor * 1000 / unidades_de_volumen[1].valor_base + ' cucharadas')
+}else if(medida_ini == litros.obtener_nombre_medida && medida_fin == mililitros.obtener_nombre_medida){
+    alert(valor + ' litro(s) equivale a ' + valor * 1000 / unidades_de_volumen[0].valor_base + ' mililitros')
+}else if(medida_ini == litros.obtener_nombre_medida && medida_fin == litros.obtener_nombre_medida){
     alert(valor + ' litro(s) equivale a ' + valor + ' litros')
 }
 
-else if(medida_ini == tazas.obtener_unidad_medida && medida_fin == litros.obtener_unidad_medida){
-    alert(valor + ' taza(s) equivale a ' + valor / 1000 * unidades_de_volumen[2].medida_base + ' litros')
-}else if(medida_ini == tazas.obtener_unidad_medida && medida_fin == mililitros.obtener_unidad_medida){
-    alert(valor + ' taza(s) equivale a ' + valor * unidades_de_volumen[2].medida_base + ' mililitros')
-}else if(medida_ini == tazas.obtener_unidad_medida && medida_fin == cucharadas.obtener_unidad_medida){
-    alert(valor + ' taza(s) equivale a ' + valor * 250 / unidades_de_volumen[1].medida_base + ' cucharadas')
-}else if(medida_ini == tazas.obtener_unidad_medida && medida_fin == tazas.obtener_unidad_medida){
+else if(medida_ini == tazas.obtener_nombre_medida && medida_fin == litros.obtener_nombre_medida){
+    alert(valor + ' taza(s) equivale a ' + valor / 1000 * unidades_de_volumen[2].valor_base + ' litros')
+}else if(medida_ini == tazas.obtener_nombre_medida && medida_fin == mililitros.obtener_nombre_medida){
+    alert(valor + ' taza(s) equivale a ' + valor * unidades_de_volumen[2].valor_base + ' mililitros')
+}else if(medida_ini == tazas.obtener_nombre_medida && medida_fin == cucharadas.obtener_nombre_medida){
+    alert(valor + ' taza(s) equivale a ' + valor * 250 / unidades_de_volumen[1].valor_base + ' cucharadas')
+}else if(medida_ini == tazas.obtener_nombre_medida && medida_fin == tazas.obtener_nombre_medida){
     alert(valor + ' taza(s) equivale a ' + valor  + ' tazas')
 }
 
 
-else if(medida_ini == cucharadas.obtener_unidad_medida && medida_fin == mililitros.obtener_unidad_medida){
-    alert(valor + ' cucharada(s) equivale a ' + valor * unidades_de_volumen[1].medida_base + ' mililitros')
-}else if(medida_ini == cucharadas.obtener_unidad_medida && medida_fin == litros.obtener_unidad_medida){
-    alert(valor + ' cucharada(s) equivale a ' + valor * 15 / unidades_de_volumen[3].medida_base + ' litros')
-}else if(medida_ini == cucharadas.obtener_unidad_medida && medida_fin == tazas.obtener_unidad_medida){
-    alert(valor + ' cucharada(s) equivale a ' + valor * 15 / unidades_de_volumen[2].medida_base + ' tazas')
-}else if(medida_ini == cucharadas.obtener_unidad_medida && medida_fin == cucharadas.obtener_unidad_medida){
+else if(medida_ini == cucharadas.obtener_nombre_medida && medida_fin == mililitros.obtener_nombre_medida){
+    alert(valor + ' cucharada(s) equivale a ' + valor * unidades_de_volumen[1].valor_base + ' mililitros')
+}else if(medida_ini == cucharadas.obtener_nombre_medida && medida_fin == litros.obtener_nombre_medida){
+    alert(valor + ' cucharada(s) equivale a ' + valor * 15 / unidades_de_volumen[3].valor_base + ' litros')
+}else if(medida_ini == cucharadas.obtener_nombre_medida && medida_fin == tazas.obtener_nombre_medida){
+    alert(valor + ' cucharada(s) equivale a ' + valor * 15 / unidades_de_volumen[2].valor_base + ' tazas')
+}else if(medida_ini == cucharadas.obtener_nombre_medida && medida_fin == cucharadas.obtener_nombre_medida){
     alert(valor + ' cucharada(s) equivale a ' + valor  + ' cucharadas')
 }
 
-else if(medida_ini == mililitros.obtener_unidad_medida && medida_fin == mililitros.obtener_unidad_medida){
+else if(medida_ini == mililitros.obtener_nombre_medida && medida_fin == mililitros.obtener_nombre_medida){
     alert(valor + ' mililitro(s) equivale a ' + valor + ' mililitros')
-}else if(medida_ini == mililitros.obtener_unidad_medida && medida_fin == litros.obtener_unidad_medida){
-    alert(valor + ' mililitro(s) equivale a ' + valor / unidades_de_volumen[3].medida_base + ' litros')
-}else if(medida_ini == mililitros.obtener_unidad_medida && medida_fin == tazas.obtener_unidad_medida){
-    alert(valor + ' mililitro(s) equivale a ' + valor / unidades_de_volumen[2].medida_base + ' tazas')
-}else if(medida_ini == mililitros.obtener_unidad_medida && medida_fin == cucharadas.obtener_unidad_medida){
-    alert(valor + ' mililitro(s) equivale a ' + valor / unidades_de_volumen[1].medida_base + ' cucharadas')
+}else if(medida_ini == mililitros.obtener_nombre_medida && medida_fin == litros.obtener_nombre_medida){
+    alert(valor + ' mililitro(s) equivale a ' + valor / unidades_de_volumen[3].valor_base + ' litros')
+}else if(medida_ini == mililitros.obtener_nombre_medida && medida_fin == tazas.obtener_nombre_medida){
+    alert(valor + ' mililitro(s) equivale a ' + valor / unidades_de_volumen[2].valor_base + ' tazas')
+}else if(medida_ini == mililitros.obtener_nombre_medida && medida_fin == cucharadas.obtener_nombre_medida){
+    alert(valor + ' mililitro(s) equivale a ' + valor / unidades_de_volumen[1].valor_base + ' cucharadas')
 }
 
 
@@ -101,29 +90,29 @@ else if(medida_ini == mililitros.obtener_unidad_medida && medida_fin == mililitr
 // let convertirMililitros = convertirBase
 
 // let convertirCucharadas = unidades_de_volumen.map(function(unidad_de_volumen){
-//     console.log("1 " + unidad_de_volumen.obtener_unidad_medida + " equivale a "+ (unidad_de_volumen.convertir_a(cucharadas, 1)) + " cucharadas" );
+//     console.log("1 " + unidad_de_volumen.obtener_nombre_medida + " equivale a "+ (unidad_de_volumen.convertir_a(cucharadas, 1)) + " cucharadas" );
 // })
 
 // let convertirTazas = unidades_de_volumen.map(function(unidad_de_volumen){
-//     console.log("1 " + unidad_de_volumen.obtener_unidad_medida + " equivale a "+ (unidad_de_volumen.convertir_a(tazas, 1)) + " tazas" );
+//     console.log("1 " + unidad_de_volumen.obtener_nombre_medida + " equivale a "+ (unidad_de_volumen.convertir_a(tazas, 1)) + " tazas" );
 // })
 
 // let convertirLitros = unidades_de_volumen.map(function(unidad_de_volumen){
-//     console.log("1 " + unidad_de_volumen.obtener_unidad_medida + " equivale a "+ (unidad_de_volumen.convertir_a(litros, 1)) + " litros" );
+//     console.log("1 " + unidad_de_volumen.obtener_nombre_medida + " equivale a "+ (unidad_de_volumen.convertir_a(litros, 1)) + " litros" );
 // })
 ///===============================
 //**funcion fallida que quedo trabada */
 
 // function (medida_ini, medida_fin, valor) {
-//     if (this.medida_ini == Medidor_Volumen.obtener_obtener_unidad_medida )
+//     if (this.medida_ini == Medidor_Volumen.obtener_obtener_nombre_medida )
 // }
 
 ///==================================
 ///***intento fallido, insisto en que creo que no deberia escribir manualmente las medidas */
 
-// if(medida_ini == litros.obtener_unidad_medida && medida_fin == tazas.obtener_unidad_medida){
+// if(medida_ini == litros.obtener_nombre_medida && medida_fin == tazas.obtener_nombre_medida){
 //     alert(litros.convertir_a(tazas, valor))
-// }else if(medida_ini == tazas.obtener_unidad_medida && medida_fin == litros.obtener_unidad_medida){
+// }else if(medida_ini == tazas.obtener_nombre_medida && medida_fin == litros.obtener_nombre_medida){
 //     alert(tazas.convertir_a(litros, valor))
 // }
 // 
