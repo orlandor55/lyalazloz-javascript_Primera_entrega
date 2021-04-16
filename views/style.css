@@ -1,0 +1,24 @@
+html, body {
+    scroll-behavior: smooth;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    font-family: 'Archivo Black', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #b1b4bd;
+    font-size: 18px;
+    line-height: 1.2;
+    background-color: #323a45;
+  }
+
+  .copyright {
+    position: relative;
+    left: 0rem;
+    bottom: 0px;
+    font-size: 0.8rem;
+    font-weight: 300;
+    line-height: 1rem;
+    text-align: center;
+  }

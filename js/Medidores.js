@@ -1,4 +1,3 @@
-
 class Medidor {
 
     constructor(nombre_medida, valor_base) {
@@ -38,6 +37,7 @@ class Medidor {
             return base
         }
     }
+
     convertir_a (medida_fin, valor) {
         let medida_ini = this.obtener_nombre_medida
         let transformacion = ((this.convertirBase (medida_ini) / medida_fin.convertirBase())) * valor
@@ -45,8 +45,6 @@ class Medidor {
     }
     
 }
-
-
 
 export class Medidor_de_Volumen extends Medidor {
     constructor(nombre_medida, valor_medida, valor_base) {
