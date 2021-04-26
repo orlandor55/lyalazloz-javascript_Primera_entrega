@@ -44,6 +44,12 @@ class Medidor {
         return transformacion
     }
     
+    comparar (medida_html) {
+        if (medida_html == this.obtener_nombre_medida) {
+            let medida_html = this.obtener_nombre_medida
+            return medida_html
+        }
+    }
 }
 
 export class Medidor_de_Volumen extends Medidor {

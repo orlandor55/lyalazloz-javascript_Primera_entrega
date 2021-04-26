@@ -15,14 +15,53 @@
     <link rel="stylesheet" href="assets/styles/style.css">
 </head>
 <body>
-    <div>
-        <h1>Primera Entrega</h1>
-        <h2>Segundo Intento :)</h2>
-        <h3>Aplicación que transforma las medidas de volumen para usar en la cocina</h3>
+    <div id= "encabezado" class= "col-12" >
+        <h1>Conversor de Medidas para Cocinar</h1>
+        <h2>Convierte fácilmente unas medidas en otras y consigue que tus recetas queden perfectas!!!</h2>
+    </div>
+    <div  id= "caja" class= "col-12" > 
+
+        <div id= "listas" >
+
+            <div id="input" class="form-group col-3">                
+                <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="Nº a Convertir">
+            </div>
+                <!-- prueba  -->
+            <div class="form-group btn-block col-3">
+                <select id="medida_ini" name="medida_ini" class="custom-select">
+                    <option selected>De</option>
+                    <option value="mililitros">Mililitros</option>
+                    <option value="cucharadas">Cucharadas</option>
+                    <option value="tazas">Tazas</option>
+                    <option value="litros">Litros</option>
+                </select>
+            </div>
+            <div class="form-group  col-3">
+                <select id="medida_fin" name="medida_fin" class="custom-select custom-select-lg">
+                    <option selected>a</option>
+                    <option value="mililitros">Mililitros</option>
+                    <option value="cucharadas">Cucharadas</option>
+                    <option value="tazas">Tazas</option>
+                    <option value="litros">Litros</option>
+                </select>
+            </div>
+            <div>
+                <button id="btnConvertir" type="button" class="btn btn-secondary">Convertir</button>
+            </div>  
+                        
+        </div>
         
     </div>
+    <div id="resultado">
+        <div class="resultado"></div>
+        <div class="resultado2"></div>
+    </div>
+        
+    
+<footer>
     <p class="copyright col-xs-12"> Diseñado con <i class="fa fa-heart"></i> por @Lyalazloz
     </p>
-    <script type="module" src="/js/apps.js"></script>
+</footer>
+<script type="module" src="/js/apps.js"></script>
 </body>
 </html>

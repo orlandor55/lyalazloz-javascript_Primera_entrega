@@ -1,6 +1,4 @@
 html, body {
-    height: 100%;
-    width: 100%;
     margin: 0;
     padding: 0;
     font-family: 'Archivo Black', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -8,19 +6,57 @@ html, body {
     background-color: #323a45;
 }
 
-div {
-    margin-top: 20%;
-    margin-bottom: 10%;
+#encabezado {
+    display: block;
+    margin: auto;
+    padding: 5%;
     text-align: center;
+    justify: space-evenly;
+}
+
+#resultado h3 {
+    justify-content: space-evenly;
+    color: rgb(207, 207, 230);
+    background-color: black;
+    padding: 3px;
+    margin: 10px;
+    text-align: center;
+}
+#caja {
+    display: flex;
+       justify-content: space-evenly;
 
 }
 
+#listas {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 5%;
+    margin: auto;
+    align-items: center;
+    border-radius: 10%;
+}
+select{
+    border-radius: 5px;
+    height: 38px;
+}
+
+footer{
+
+    align-items: center;
+}
+
 .copyright {
-    position: relative;
-    left: 0rem;
-    bottom: 0px;
+    position: absolute;
+    bottom: 30px;
+    left: 45%;
+    justify-self: center;
     font-size: 0.8rem;
     font-weight: 300;
     line-height: 1rem;
     text-align: center;
-  }
+}
+
+footer {
+    margin-bottom: 20px;
+}
